@@ -13,6 +13,9 @@ on:
       - master
   schedule:
     - cron: 0 20 * * *
+      
+  watch:
+    types: [started]
 jobs:
   build:
     runs-on: ubuntu-latest
