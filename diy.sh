@@ -13,9 +13,9 @@ sed -i 's/config internal themes/config internal themes\n    option Argon  \"\/l
 echo '去除默认bootstrap主题'
 sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
 
-echo '删除旧版argon,链接新版'
+#echo '删除旧版argon,链接新版'
 rm -rf ./package/lean/luci-theme-argon
-ln -s ../../../luci-theme-argon ./package/lean/
+#ln -s ../../../luci-theme-argon ./package/lean/
 
 echo '修改wifi名称'
 sed -i 's/OpenWrt/G-DOCK/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
@@ -31,9 +31,7 @@ echo '下载新的主题lignt and night'
 git clone https://github.com/Aslin-Ameng/luci-theme-Light.git ../diy/luci-theme-Light
 git clone https://github.com/Aslin-Ameng/luci-theme-Night.git ../diy/luci-theme-Night
 git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git ../diy/luci-theme-opentomcat
-
-# 替换更新默认argon主题
-rm -rf package/lean/luci-theme-argon && git clone https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon -b 18.06 ../diy/luci-theme-argon
+git clone https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon -b 18.06 ../diy/luci-theme-argon
 
 # 添加第三方软件包
 git clone https://github.com/kenzok8/openwrt-packages ../diy/openwrt-packages
