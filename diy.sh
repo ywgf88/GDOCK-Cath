@@ -2,7 +2,7 @@ echo '修改机器名称'
 sed -i 's/OpenWrt/G-DOCK/g' package/base-files/files/bin/config_generate
 
 echo '修改网关地址'
-sed -i 's/192.168.1.1/192.168.5.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/10.10.10.8/g' package/base-files/files/bin/config_generate
 
 echo '修改时区'
 sed -i "s/'UTC'/'CST-8'\n        set system.@system[-1].zonename='Asia\/Shanghai'/g" package/base-files/files/bin/config_generate
@@ -36,8 +36,8 @@ git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git ../diy/luci-the
 rm -rf package/lean/luci-theme-argon && git clone https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon -b 18.06 ../diy/luci-theme-argon
 
 # 添加第三方软件包
-git clone https://github.com/kenzok8/openwrt-packages package/openwrt-packages
-git clone https://github.com/destan19/OpenAppFilter package/OpenAppFilter
+git clone https://github.com/kenzok8/openwrt-packages ../diy/openwrt-packages
+git clone https://github.com/destan19/OpenAppFilter ../diy/OpenAppFilter
 
 
 echo '集成diy目录'
