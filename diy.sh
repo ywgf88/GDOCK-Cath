@@ -33,7 +33,7 @@ git clone https://github.com/Aslin-Ameng/luci-theme-Night.git ../diy/luci-theme-
 git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git ../diy/luci-theme-opentomcat
 
 # 替换更新默认argon主题
-rm -rf package/lean/luci-theme-argon && git clone https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon -b 18.06
+rm -rf package/lean/luci-theme-argon && git clone https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon -b 18.06 ../diy/luci-theme-argon
 
 # 添加第三方软件包
 git clone https://github.com/kenzok8/openwrt-packages package/openwrt-packages
