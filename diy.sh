@@ -13,6 +13,9 @@ sed -i 's/config internal themes/config internal themes\n    option Argon  \"\/l
 echo '去除默认bootstrap主题'
 sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
 
+#Modify the kernel to 5.4:
+sed -i 's/KERNEL_PATCHVER:=4.19/KERNEL_PATCHVER:=5.4/g' target/linux/ipq40xx/Makefile
+
 #echo '删除旧版argon,链接新版'
 rm -rf ./package/lean/luci-theme-argon
 #ln -s ../../../luci-theme-argon ./package/lean/
