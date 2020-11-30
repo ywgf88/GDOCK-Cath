@@ -20,21 +20,22 @@ sed -i 's/KERNEL_PATCHVER:=4.19/KERNEL_PATCHVER:=5.4/g' target/linux/ipq40xx/Mak
 rm -rf ./package/lean/luci-theme-argon
 #ln -s ../../../luci-theme-argon ./package/lean/
 
-echo '修改wifi名称'
-sed -i 's/OpenWrt/G-DOCK/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+#echo '修改wifi名称'
+#sed -i 's/OpenWrt/G-DOCK/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
-echo '修改banner'
-rm -rf package/base-files/files/etc/banner
-cp -f ../banner package/base-files/files/etc/
+#echo '修改banner'
+#rm -rf package/base-files/files/etc/banner
+#cp -f ../banner package/base-files/files/etc/
 
-echo '下载ServerChan'
-git clone https://github.com/tty228/luci-app-serverchan ../diy/luci-app-serverchan
+#echo '下载ServerChan'
+#git clone https://github.com/tty228/luci-app-serverchan ../diy/luci-app-serverchan
 
 echo '下载新的主题lignt and night'
 git clone https://github.com/Aslin-Ameng/luci-theme-Light.git ../diy/luci-theme-Light
 git clone https://github.com/Aslin-Ameng/luci-theme-Night.git ../diy/luci-theme-Night
 git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git ../diy/luci-theme-opentomcat
-git clone https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon -b 18.06 ../diy/luci-theme-argon
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon  ../diy/luci-theme-argon
+git clone https://github.com/jerrykuku/luci-app-argon-config ../diy/luci-theme-argon-config
 
 # 添加第三方软件包
 git clone https://github.com/kenzok8/openwrt-packages ../diy/openwrt-packages
@@ -52,4 +53,10 @@ ln -s ../../diy ./package/openwrt-packages
 
 echo '首页增加CPU频率动态显示'
 cp -f ../diy/mod-index.htm ./feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
+
+#add luci-app-dockerman
+rm -rf ./package/lean/luci-app-docker
+
+git clone https://github.com/lisaac/luci-in-docker.git ../diy/luci-in-docker
+git clone https://github.com/lisaac/luci-app-dockerman.git ../diy/luci-app-dockerman
 
